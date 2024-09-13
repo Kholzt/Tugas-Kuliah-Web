@@ -56,7 +56,13 @@
 
         .folder {
             font-weight: bold;
-            margin-top: 20px;
+            /* margin-top: 20px; */
+        }
+
+        .parent-list {
+            display: flex;
+            gap: 50px;
+            flex-wrap: wrap;
         }
     </style>
 </head>
@@ -84,10 +90,12 @@
                         }
                         // Mengecek apakah elemen adalah folder, lalu memanggil fungsi secara rekursif
                         elseif (is_dir($fullPath)) {
-                            echo "<li class='folder'>Folder: " . $file . "</li>";
+                            echo "<li class='folder'>Folder: " . $file;
                             echo "<ul>";
                             listFiles($fullPath); // Panggil fungsi lagi untuk folder
                             echo "</ul>";
+
+                            echo "</li>";;
                         }
                     }
                 }

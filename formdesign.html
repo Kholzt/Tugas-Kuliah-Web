@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="style-form.css">
+  <title>Form Pendaftaran Responsive HTML dan CSS</title>
+  <style>
+    /* Tambahan styling */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      width: 80%;
+      max-width: 1200px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    #header {
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    #header img {
+      width: 100px;
+      margin-bottom: 10px;
+    }
+
+    #header h1 {
+      margin-bottom: 5px;
+    }
+
+    .form-container {
+      margin-top: 20px;
+    }
+
+    form {
+      width: 100%;
+    }
+
+    fieldset {
+      border: 1px solid #ddd;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    legend {
+      padding: 0 10px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    .form-group input[type="radio"],
+    .form-group input[type="checkbox"] {
+      width: auto;
+      margin-right: 10px;
+    }
+
+    .form-group button {
+      padding: 10px 20px;
+      background-color: #5cb85c;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .form-group button img {
+      vertical-align: middle;
+      margin-right: 5px;
+    }
+
+    .form-group input[type="checkbox"] {
+      margin-bottom: 10px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      margin-top: 20px;
+      background-color: #333;
+      color: white;
+    }
+
+    /* agar element anak pada parent .form-action berbaris kesamping */
+    .form-action {
+      display: flex;
+    }
+
+    /* agar ukuran anak pada form action full parent */
+    /* jika terdapat 2 element anak maka dari 100% dibagi sesuai jumlah anak  */
+    .form-action fieldset {
+      /* kode dibawah ini versi singkat dari 2 kode css dibawah  */
+      /* flex: 1 100%; */
+
+      /* untuk memberikan ukuran minimal pada element  */
+      flex-basis: 100%;
+      /* untuk secara otomatis mengisi ruang yg ada  */
+      flex-grow: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div id="header">
+      <img src="logo.png" alt="Logo">
+      <h1>Form Pendaftaran</h1>
+      <p>Silakan isi form secara lengkap</p>
+    </div>
+
+    <div class="form-container">
+      <form action="action.php" method="post" autocomplete="on" id="form1">
+        <!-- pada div diberikan class form action -->
+        <div class="form-action">
+          <!-- form primer  -->
+          <fieldset>
+            <legend>Informasi Primer</legend>
+            <div class="form-group">
+              <label for="nama">Nama Lengkap</label>
+              <input type="text" name="nama" id="nama" placeholder="Isikan nama lengkap Anda" maxlength="20" autofocus
+                required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" name="email" id="email" placeholder="mis. email@gmail.com" maxlength="50"
+                autocomplete="off" required>
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" name="password" id="password" placeholder="Password dengan huruf, angka dan simbol"
+                required>
+            </div>
+            <div class="form-group">
+              <label for="kota">Asal Kota</label>
+              <select name="kota" id="kota">
+                <option value="malang" selected>Malang</option>
+                <option value="ponorogo">Ponorogo</option>
+                <option value="surabaya">Surabaya</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Gender</label>
+              <input type="radio" name="gender" value="1" required> Laki-laki
+              <input type="radio" name="gender" value="2" required> Perempuan
+            </div>
+          </fieldset>
+
+          <!-- form sekunder  -->
+          <fieldset>
+            <legend>Informasi Sekunder</legend>
+            <div class="form-group">
+              <label for="alamat">Alamat</label>
+              <textarea name="alamat" id="alamat" placeholder="Isi alamat lengkap Anda" rows="6" required></textarea>
+            </div>
+            <div class="form-group">
+              <label>Kendaraan</label>
+              <input type="checkbox" name="kendaraan[]" value="mobil"> Mobil
+              <input type="checkbox" name="kendaraan[]" value="motor"> Sepeda Motor
+              <input type="checkbox" name="kendaraan[]" value="sepeda"> Sepeda
+            </div>
+            <div class="form-group">
+              <label for="website">Alamat Website</label>
+              <input type="url" name="website" id="website" placeholder="mis. http://websitesaya.com">
+            </div>
+            <div class="form-group">
+              <label for="tgl_lahir">Tanggal lahir</label>
+              <input type="date" name="tgl_lahir" id="tgl_lahir" required>
+            </div>
+            <div class="form-group">
+              <label for="anak">Jumlah Anak</label>
+              <input type="number" name="anak" id="anak" value="0" min="0" max="10">
+            </div>
+            <div class="form-group">
+              <label for="foto">Foto Anda</label>
+              <label for="file-upload" class="upload-foto">Upload Foto</label>
+              <input id="file-upload" type="file" name="foto">
+            </div>
+          </fieldset>
+        </div>
+
+        <div class="form-group">
+          <button type="submit">
+            <img src="buttonsubmit.png" width="20" height="20" alt="Submit"> KIRIM
+          </button>
+        </div>
+
+        <div class="form-group">
+          <input type="checkbox" name="subscribe_email" value="1"> Subscribe notifikasi ke email Anda (jika tidak,
+          silakan kosongi)
+          <input type="checkbox" name="subscribe_post" value="2"> Subscribe postingan dari website
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; AkasSakti - 2024</p>
+  </footer>
+</body>
+
+</html>

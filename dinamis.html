@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dinamis web</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        input {
+            display: block;
+            margin-bottom: 10px;
+            width: 100%;
+            padding: 7px 10px;
+        }
+
+        label {
+            margin-bottom: 5px;
+            display: inline-block;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        form {
+            width: 400px;
+            border: 1px solid black;
+            padding: 10px;
+            transition: all .5s;
+        }
+
+
+
+        button {
+            padding: 5px 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="display.php" method="post">
+        <label for="">Nama</label>
+        <input type="text" placeholder="Name" name="nama" id="">
+        <label for="">Umur</label>
+        <input type="number" placeholder="Umur" name="umur" id="">
+        <button>Submit</button>
+    </form>
+</body>
+
+</html>

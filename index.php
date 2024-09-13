@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tugas Kuliah Web</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Daftar File</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
             display: flex;
             align-items: center;
@@ -21,18 +21,79 @@
             color: white;
             min-height: 100vh;
         }
+
         h1 {
-            font-size: 5rem;
+            font-size: 3rem;
+            margin-bottom: 20px;
         }
-        p {
+
+        .container {
             font-size: 1.3rem;
+        }
+
+        ul {
+            list-style: none;
+            margin: 20px 0;
+            padding: 0;
+        }
+
+        li {
+            padding: 5px 0;
+        }
+
+        a {
+            color: #00d1ff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .folder {
+            font-weight: bold;
+            margin-top: 20px;
         }
     </style>
 </head>
 
 <body>
-    <h1><?= "Selamat datang disitus kami"; ?></h1>
-    <p><?= "Ini adalah paragraf yg dibuat dengan php dan di style dengan css"; ?></p>
+    <h1>Daftar File</h1>
+    <div class="container">
+        <h2>Files in Directory:</h2>
+        <ul>
+            <?php
+            // Fungsi untuk menampilkan daftar file rekursif dari direktori
+            function listFiles($dir)
+            {
+                // Mengambil daftar file dan folder dari direktori
+                $files = scandir($dir);
+
+                // Menampilkan file saja, kecuali "." dan ".." serta file tersembunyi (yang diawali dengan .)
+                foreach ($files as $file) {
+                    if ($file !== '.' && $file !== '..' && $file[0] !== '.') {
+                        $fullPath = $dir . '/' . $file;
+
+                        // Mengecek apakah elemen adalah file
+                        if (is_file($fullPath)) {
+                            echo "<li><a href='" . $fullPath . "' >" . $file . "</a></li>";
+                        }
+                        // Mengecek apakah elemen adalah folder, lalu memanggil fungsi secara rekursif
+                        elseif (is_dir($fullPath)) {
+                            echo "<li class='folder'>Folder: " . $file . "</li>";
+                            echo "<ul>";
+                            listFiles($fullPath); // Panggil fungsi lagi untuk folder
+                            echo "</ul>";
+                        }
+                    }
+                }
+            }
+
+            // Menampilkan daftar file di root directory
+            listFiles('.');
+            ?>
+        </ul>
+    </div>
 </body>
 
 </html>

@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daftar File</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -20,6 +23,7 @@
             background-color: black;
             color: white;
             min-height: 100vh;
+            font-family: "Inter", system-ui;
         }
 
         h1 {
@@ -61,7 +65,7 @@
     <h1>Daftar File</h1>
     <div class="container">
         <h2>Files in Directory:</h2>
-        <ul>
+        <ul class="parent-list">
             <?php
             // Fungsi untuk menampilkan daftar file rekursif dari direktori
             function listFiles($dir)

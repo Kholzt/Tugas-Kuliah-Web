@@ -24,11 +24,11 @@
 
         // Cek logika nilai
         if ($nilai >= 65) {
-            echo "Lulus";
+            echo "<span style='color:green;'>Lulus</span>";
         } else if ($nilai >= 50 && $nilai < 65) {
-            echo "Harus Mengulang";
+            echo "<span style='color:yellow;'>Harus Mengulang</span>";
         } else {
-            echo "Tidak Lulus";
+            echo "<span style='color:red;'>Tidak Lulus</span>";
         }
     }
     ?>
